@@ -39,5 +39,7 @@ public class ConversionCalculator {
             return -1;
         }
         calfeetAndToCentimeters(1, 12);
+        return 0;
     }
+
 }
