@@ -25,7 +25,7 @@ public class SecondsAndMinutes {
     Create a new console project and call it SecondsAndMinutesChallenge*/
 
     public static void main(String[] args) {
-        getDurationString(1, 59); // Validation test
+        getDurationString(61, 0); // Validation test
     }
     public  static int getDurationString(int minutes, int seconds) {
 
@@ -33,6 +33,27 @@ public class SecondsAndMinutes {
             System.out.println("Invalid value!");
             return -1;
         }
+        int totalSeconds = minutes * 60 + seconds; // Converte tudo em segundos
+        System.out.println("Total seconds = " + totalSeconds);
+        if (totalSeconds < 3600) {
+            System.out.printf("00h %dm %ds", minutes, seconds);
+        }else {
+
+            int hour = totalSeconds / 3_600;
+            minutes = (totalSeconds % 3600) / 60;
+            int remainderSeconds = (totalSeconds % 3600) % 60;
+            System.out.printf("%dh %dm %ds",hour, minutes, remainderSeconds);
+        }
         return 0;
     }
 }
+/*      Formulas para conversao do tempo
+*
+*           int hour = totalSeconds / 3_600;
+            System.out.println("Total hour = " + hour);
+            int minutesOutput = (totalSeconds % 3600) / 60;
+            System.out.println("Minuts output = " + minutesOutput);
+            minutes = totalSeconds % 3600; // Essa formula mostra o total dos minutos que sobram depois de retirar as horas
+            System.out.println("Total minuts " + minutes);
+            int remainderSeconds = (totalSeconds % 3600) % 60;
+            System.out.println("Remainder secods " + remainderSeconds);*/
