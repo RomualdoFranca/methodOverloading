@@ -32,8 +32,8 @@ public class SecondsAndMinutes {
         if (minutes < 0 || seconds < 0 || seconds > 59) { // Validate the two parameters
             System.out.println("Invalid value!");
             return -1;
-        }
-        int totalSeconds = minutes * 60 + seconds; // Converte tudo em segundos
+
+        }int totalSeconds = minutes * 60 + seconds; // Converte tudo em segundos
         System.out.println("Total seconds = " + totalSeconds);
         if (totalSeconds < 3600) {
             System.out.printf("00h %dm %ds", minutes, seconds);
@@ -47,6 +47,7 @@ public class SecondsAndMinutes {
         return 0;
     }
 }
+
 /*      Formulas para conversao do tempo
 *
 *           int hour = totalSeconds / 3_600;
@@ -56,4 +57,21 @@ public class SecondsAndMinutes {
             minutes = totalSeconds % 3600; // Essa formula mostra o total dos minutos que sobram depois de retirar as horas
             System.out.println("Total minuts " + minutes);
             int remainderSeconds = (totalSeconds % 3600) % 60;
-            System.out.println("Remainder secods " + remainderSeconds);*/
+            System.out.println("Remainder secods " + remainderSeconds);
+            *
+            *         */
+
+/*        int totalSeconds = minutes * 60 + seconds; // Converte tudo em segundos
+        int hour = totalSeconds / 3_600;
+        if (minutes < 0 || seconds < 0 || seconds > 59) { // Validate the two parameters
+            System.out.println("Invalid value!");
+            return -1;
+
+        } else if (totalSeconds < 3600) {
+            System.out.printf("00h %dm %ds", minutes, seconds);
+
+        }
+            minutes = (totalSeconds % 3600) / 60;
+            int remainderSeconds = (totalSeconds % 3600) % 60;
+            System.out.printf("%dh %dm %ds",hour, minutes, remainderSeconds);
+            return getDurationString(minutes, remainderSeconds);*/
