@@ -22,14 +22,16 @@ public class ConversionOverLoading {
     // use the link I give you to confirm your code is calculating correctly.
     // Calling another overloaded method just requires you to use the
     // right number of parameters.
+
     public static void main(String[] args) {
 
-        calFeetAndInchesToCetimeters(1, 12); // Testing validation
-
+        // Tests validation of the first method
+        calFeetAndInchesToCetimeters(1, 12);
         double centimeters = calFeetAndInchesToCetimeters(1, 12);
         System.out.println(centimeters);
         calFeetAndInchesToCetimeters(1, 12);
-
+        // Tests validation of the second method
+        calFeetAndInchesToCetimeters(25);
     }
     // Create a method called calcFeetAndInchesToCentimeters
     public static double calFeetAndInchesToCetimeters(double feet, double inches) {
@@ -42,4 +44,17 @@ public class ConversionOverLoading {
         System.out.printf("%.1fft %.1fin = %.2fcm\n", feet, inches, centimeters );
         return centimeters;
     }
+    public static double calFeetAndInchesToCetimeters(double inches) {
+
+        if (inches < 0 ) {
+            System.out.println("Invalid input!!");
+            return -1;
+        }
+        double feet = (inches - (inches % 12)) / 12;
+        System.out.printf("Feet = %.1f \n", feet);
+//        inches = inches % 12;
+//        System.out.println("Inches = " + inches);
+        return 0;
+    }
+
 }
