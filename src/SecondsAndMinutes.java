@@ -25,30 +25,62 @@ public class SecondsAndMinutes {
     Create a new console project and call it SecondsAndMinutesChallenge*/
 
     public static void main(String[] args) {
-        getDurationString(61, 0); // Validation test
+        // Validation tests
+//        getDurationString(61, 30);
+//        getDurationString(59);
+        int secondsToMinutes = getDurationString(121);
+        System.out.println(secondsToMinutes);
     }
-    public  static int getDurationString(int minutes, int seconds) {
+
+    public static int getDurationString(int minutes, int seconds) {
+
 
         if (minutes < 0 || seconds < 0 || seconds > 59) { // Validate the two parameters
             System.out.println("Invalid value!");
             return -1;
 
-        }int totalSeconds = minutes * 60 + seconds; // Converte tudo em segundos
+        }
+        int totalSeconds = minutes * 60 + seconds; // Converte tudo em segundos
         System.out.println("Total seconds = " + totalSeconds);
         if (totalSeconds < 3600) {
-            System.out.printf("00h %dm %ds", minutes, seconds);
-        }else {
-
+            minutes = totalSeconds / 60;
+            seconds = minutes % 60;
+            System.out.printf("00h %dm %ds\n", minutes, seconds);
+        } else {
             int hour = totalSeconds / 3_600;
             minutes = (totalSeconds % 3600) / 60;
             int remainderSeconds = (totalSeconds % 3600) % 60;
-            System.out.printf("%dh %dm %ds",hour, minutes, remainderSeconds);
+            System.out.printf("%dh %dm %ds\n", hour, minutes, remainderSeconds);
+//            return getDurationString(minutes, seconds);
         }
         return 0;
     }
+    public static int getDurationString(int seconds) {
+        if (seconds < 0) {
+            System.out.println("Invalid value!");
+            return -1;
+        }
+
+        int minutes = seconds / 60;
+        seconds = seconds % 60;
+//        System.out.printf("00h %dm %ds\n", minutes,seconds);
+        return getDurationString(minutes, seconds);
+
+    }
 }
 
+
+
 /*      Formulas para conversao do tempo
+
+            else if (seconds < 60) {
+            System.out.printf("00h 00m %ds\n", seconds);
+            return seconds;
+        }
+        int minutes = seconds / 60;
+        seconds = seconds % 60;
+        System.out.printf("00h %dm %ds\n", minutes,seconds);
+        return getDurationString(minutes, seconds);
 *
 *           int hour = totalSeconds / 3_600;
             System.out.println("Total hour = " + hour);
