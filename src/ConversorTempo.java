@@ -19,14 +19,13 @@ public class ConversorTempo {
         } else if (minute < 60) {
             System.out.printf("Resultado do else if : 00h:%dm:%ds\n", minute, seconds);
 
-        }else{
+        } else {
             System.out.printf("%d minuto e %d segundo = ", minute, seconds);
             int hora = minute / 60;
             minute = minute % 60;
-            System.out.printf(" %dh:%dm:%ds\n",hora, minute, seconds);
+            System.out.printf(" %dh:%dm:%ds\n", hora, minute, seconds);
             return hora;
         }
-
         return 0;
     }
     public  static int getDurationString(int seconds){
